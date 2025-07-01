@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javohir Edu - Zamonaviy O'quv Markazi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn-glass {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Courses */
+        .courses {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-level {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Javohir Edu</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Bosh sahifa</a></li>
+                    <li><a href="#courses">Kurslar</a></li>
+                    <li><a href="#features">Xizmatlar</a></li>
+                    <li><a href="#contact">Aloqa</a></li>
+                </ul>
+                <div>
+                    <button class="btn btn-glass" onclick="openModal('loginModal')">Kirish</button>
+                    <button class="btn btn-primary" onclick="openModal('registerModal')">Ro'yxat</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Kelajagingizni Javohir Edu bilan Yarating</h1>
+            <p>Zamonaviy ta'lim texnologiyalari va tajribali ustozlar bilan professional ko'nikmalarni o'rganing.</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn btn-primary">Kurslarni Boshlash</a>
+                <button class="btn btn-glass" onclick="openModal('contactModal')">Bepul Maslahat</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Bitiruvchilar</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Kurslar</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Mamnunlik</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Qo'llab-quvvatlash</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Nima uchun Javohir Edu?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Zamonaviy Texnologiyalar</h3>
+                    <p>Eng so'nggi texnologiyalar va dasturlash tillari bo'yicha chuqur bilim</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Tajribali Ustozlar</h3>
+                    <p>5+ yillik tajribaga ega professional dasturchilar va mutaxassislar</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Amaliy Loyihalar</h3>
+                    <p>Real loyihalar ustida ishlash va portfolio yaratish imkoniyati</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Sertifikat</h3>
+                    <p>Kurs yakunida rasmiy sertifikat va ish topishda yordam</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Moslashuvchan Vaqt</h3>
+                    <p>Online va offline darslar, o'zingizga qulay vaqtda</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Doimiy Qo'llab-quvvatlash</h3>
+                    <p>24/7 texnik yordam va savollarga javob olish</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2 class="section-title">Mashqul Kurslarimiz</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">💻</div>
+                    <div class="course-content">
+                        <span class="course-level">Boshlang'ich</span>
+                        <h3>Web Dasturlash</h3>
+                        <p>HTML, CSS, JavaScript va React.js o'rganish</p>
+                        <div class="course-price">500,000 so'm</div>
+                        <button class="btn btn-primary">Ro'yxatdan o'tish</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">📱</div>
+                    <div class="course-content">
+                        <span class="course-level">O'rta</span>
+                        <h3>Mobile Dasturlash</h3>
+                        <p>React Native va Flutter bilan mobil ilovalar</p>
+                        <div class="course-price">600,000 so'm</div>
+                        <button class="btn btn-primary">Ro'yxatdan o'tish</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">🐍</div>
+                    <div class="course-content">
+                        <span class="course-level">Boshlang'ich</span>
+                        <h3>Python Dasturlash</h3>
+                        <p>Python asoslari va Django framework</p>
+                        <div class="course-price">550,000 so'm</div>
+                        <button class="btn btn-primary">Ro'yxatdan o'tish</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">🤖</div>
+                    <div class="course-content">
+                        <span class="course-level">Yuqori</span>
+                        <h3>AI va Machine Learning</h3>
+                        <p>Sun'iy intellekt va mashinali o'rganish</p>
+                        <div class="course-price">800,000 so'm</div>
+                        <button class="btn btn-primary">Ro'yxatdan o'tish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Bugun Boshlang!</h2>
+            <p>Kelajagingizni bugun qurishni boshlang. Bepul konsultatsiya uchun bog'laning.</p>
+            <button class="btn btn-primary" onclick="openModal('contactModal')">Bepul Maslahat Olish</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Javohir Edu</h3>
+                    <p>Zamonaviy ta'lim texnologiyalari va professional ko'nikmalar markazi</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kurslar</h3>
+                    <ul>
+                        <li><a href="#">Web Dasturlash</a></li>
+                        <li><a href="#">Mobile Dasturlash</a></li>
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">AI/ML</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ma'lumot</h3>
+                    <ul>
+                        <li><a href="#">Biz haqimizda</a></li>
+                        <li><a href="#">Ustozlar</a></li>
+                        <li><a href="#">Sertifikatlar</a></li>
+                        <li><a href="#">Sharhlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <ul>
+                        <li>📧 info@javohiredu.uz</li>
+                        <li>📞 +998 90 123 45 67</li>
+                        <li>📍 Toshkent, O'zbekiston</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Javohir Edu. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Kirish</h2>
+            <form>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" placeholder="emailingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Parol:</label>
+                    <input type="password" placeholder="parolingizni kiriting" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Kirish</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Ro'yxatdan o'tish</h2>
+            <form>
+                <div class="form-group">
+                    <label>Ism:</label>
+                    <input type="text" placeholder="ismingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" placeholder="emailingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefon:</label>
+                    <input type="tel" placeholder="telefon raqamingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Parol:</label>
+                    <input type="password" placeholder="parol yarating" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Ro'yxatdan o'tish</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+            <h2>Bepul Maslahat</h2>
+            <form>
+                <div class="form-group">
+                    <label>Ism:</label>
+                    <input type="text" placeholder="ismingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefon:</label>
+                    <input type="tel" placeholder="telefon raqamingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Qiziqtirgan kurs:</label>
+                    <input type="text" placeholder="masalan: Web Dasturlash" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Yuborish</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
